@@ -8,6 +8,7 @@ This package is an integration of `joetannenbaum/phpushbullet` library in larave
 + [Listing Devices](#listing-devices)
 + [Pushing](#pushing)
   + [To Devices](#to-devices)
+  + [To Type of evices](#to-type)
   + [To Users](#to-users)
 + [Types](#types)
   + [Notes](#notes)
@@ -98,6 +99,25 @@ PushBullet::device('Chrome')->device('Galaxy S4')->note('Remember', 'Buy some eg
 // or
 PushBullet::device('Chrome', 'Galaxy S4')->note('Remember', 'Buy some eggs.');
 ```
+
+If you want to push to all devices
+
+```php
+PushBullet::all()->note('Remember', 'Buy some eggs.');
+```
+
+### To Type
+
+You can select a type of device (ex android)
+```
+PushBullet::type('android')->note('Remember', 'Buy some eggs.');
+// or
+PushBullet::type('android')->type('chrome')->note('Remember', 'Buy some eggs.');
+// or
+PushBullet::type('android', 'chrome')->note('Remember', 'Buy some eggs.');
+```
+
+
 
 ### To Users
 
