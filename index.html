@@ -44,6 +44,7 @@
 
 <ul>
 <li><a href="#to-devices">To Devices</a></li>
+<li><a href="#to-type">To Type of evices</a></li>
 <li><a href="#to-users">To Users</a></li>
 </ul>
 </li>
@@ -65,7 +66,7 @@
 
 <pre><code>{
     "require": {
-        "lahaxearnaud/laravel-pushbullet": "~0.1"
+        "lahaxearnaud/laravel-pushbullet": "~0.2"
     }
 }
 </code></pre>
@@ -130,6 +131,22 @@
 <div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s2"><span class="pl-c">// or</span></span>
 <span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>If you want to push to all devices</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>all()<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h3>
+<a id="to-type" class="anchor" href="#to-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Type</h3>
+
+<p>You can select a type of device (ex android)</p>
+
+<pre><code>PushBullet::type('android')-&gt;note('Remember', 'Buy some eggs.');
+// or
+PushBullet::type('android')-&gt;type('chrome')-&gt;note('Remember', 'Buy some eggs.');
+// or
+PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
+</code></pre>
 
 <h3>
 <a id="to-users" class="anchor" href="#to-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Users</h3>
