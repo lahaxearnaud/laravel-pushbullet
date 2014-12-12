@@ -1,0 +1,21 @@
+{
+    "name": "lahaxearnaud/laravel-pushbullet",
+    "description": "Laravel 4 integration of joetannenbaum/phpushbullet",
+    "authors": [
+        {
+            "name": "Arnaud Lahaxe",
+            "email": "lahaxe.arnaud@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "joetannenbaum/phpushbullet": "~1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lahaxearnaud\\LaravelPushbullet\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
