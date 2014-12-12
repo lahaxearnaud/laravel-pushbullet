@@ -1,6 +1,9 @@
 {
     "name": "lahaxearnaud/laravel-pushbullet",
     "description": "Laravel 4 integration of joetannenbaum/phpushbullet",
+    "description": "PushBullet library for Laravel 4.",
+    "keywords": ["pushbullet", "laravel", "notification"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Arnaud Lahaxe",
