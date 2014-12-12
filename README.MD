@@ -23,7 +23,7 @@ This package is an integration of `joetannenbaum/phpushbullet` library in larave
 ```
 {
     "require": {
-        "lahaxearnaud/laravel-pushbullet": "~0.1"
+        "lahaxearnaud/laravel-pushbullet": "~0.2"
     }
 }
 ```
