@@ -3,7 +3,8 @@
 use Illuminate\Support\ServiceProvider;
 use \Config as Config;
 
-class LaravelPushbulletServiceProvider extends ServiceProvider {
+class LaravelPushbulletServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -19,7 +20,9 @@ class LaravelPushbulletServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('lahaxearnaud/laravel-pushbullet');
+        $this->publishes([
+            __DIR__ . '../../config/config.php' => config_path('pushbullet.php'),
+        ]);
     }
 
     /**
@@ -29,8 +32,7 @@ class LaravelPushbulletServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->bind('pushbullet', function()
-        {
+        $this->app->bind('pushbullet', function () {
             $apiKey = $this->app['config']->get('laravel-pushbullet::apiKey', null);
 
             return new LaravelPushbullet($apiKey);
@@ -44,7 +46,7 @@ class LaravelPushbulletServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array('pushbullet');
+        return ['pushbullet'];
     }
 
 }
