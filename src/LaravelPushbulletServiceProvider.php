@@ -33,7 +33,7 @@ class LaravelPushbulletServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('pushbullet', function () {
-            $apiKey = $this->app['config']->get('laravel-pushbullet::apiKey', null);
+            $apiKey = $this->app['config']->get('pushbullet.apiKey', null);
 
             return new LaravelPushbullet($apiKey);
         });
