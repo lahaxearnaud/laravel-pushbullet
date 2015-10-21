@@ -16,7 +16,10 @@ class LaravelPushbullet extends PHPushbullet {
     {
         $devices = $this->devices();
         foreach ($devices as $device) {
-            $this->device($device->iden);
+            if( $device->active )
+            {
+                $this->device($device->iden);
+            }
         }
 
         return $this;
