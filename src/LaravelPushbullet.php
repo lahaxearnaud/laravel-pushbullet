@@ -16,8 +16,7 @@ class LaravelPushbullet extends PHPushbullet {
     {
         $devices = $this->devices();
         foreach ($devices as $device) {
-            if( $device->active )
-            {
+            if($device->active) {
                 $this->device($device->iden);
             }
         }
@@ -30,7 +29,7 @@ class LaravelPushbullet extends PHPushbullet {
         foreach (func_get_args() as $type) {
             $devices = $this->devices();
             foreach ($devices as $device) {
-                if(strcasecmp($device->type, $type) === 0) {
+                if(strcasecmp($device->type, $type) === 0 && $device->active) {
                     $this->device($device->iden);
                 }
             }
