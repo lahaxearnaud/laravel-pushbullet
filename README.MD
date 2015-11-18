@@ -97,6 +97,10 @@ To push to multiple devices:
 PushBullet::device('Chrome')->device('Galaxy S4')->note('Remember', 'Buy some eggs.');
 // or
 PushBullet::device('Chrome', 'Galaxy S4')->note('Remember', 'Buy some eggs.');
+// or using an array
+PushBullet::device(['Chrome', 'Galaxy S4'])->note('Remember', 'Buy some eggs.');
+// or using a collection
+PushBullet::device(Device::all()->pluck('name'))->note('Remember', 'Buy some eggs.');
 ```
 
 If you want to push to all devices
@@ -114,6 +118,10 @@ PushBullet::type('android')->note('Remember', 'Buy some eggs.');
 PushBullet::type('android')->type('chrome')->note('Remember', 'Buy some eggs.');
 // or
 PushBullet::type('android', 'chrome')->note('Remember', 'Buy some eggs.');
+// or using an array
+PushBullet::type(['android', 'chrome'])->note('Remember', 'Buy some eggs.');
+// or using a collection
+PushBullet::type(Type::all()->pluck('name'))->note('Remember', 'Buy some eggs.');
 ```
 
 
@@ -134,6 +142,10 @@ To push to multiple users:
 PushBullet::user('joe@example.com')->user('anne@example.com')->note('Remember', 'Buy some eggs.');
 // or
 PushBullet::user('joe@example.com', 'anne@example.com')->note('Remember', 'Buy some eggs.');
+// or using an array
+PushBullet::user(['joe@example.com', 'anne@example.com'])->note('Remember', 'Buy some eggs.');
+// or using a collection
+PushBullet::user(User::findMany([1, 2, 3])->pluck('email'))->note('Remember', 'Buy some eggs.');
 ```
 ## Types
 
