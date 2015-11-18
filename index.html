@@ -1,37 +1,33 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Laravel-pushbullet by lahaxearnaud</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Laravel-pushbullet</h1>
-        <p>PushBullet for Laravel</p>
+    <section class="page-header">
+      <h1 class="project-name">Laravel-pushbullet</h1>
+      <h2 class="project-tagline">PushBullet for Laravel</h2>
+      <a href="https://github.com/lahaxearnaud/laravel-pushbullet" class="btn">View on GitHub</a>
+      <a href="https://github.com/lahaxearnaud/laravel-pushbullet/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lahaxearnaud/laravel-pushbullet/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/lahaxearnaud/laravel-pushbullet">View the Project on GitHub <small>lahaxearnaud/laravel-pushbullet</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/lahaxearnaud/laravel-pushbullet/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/lahaxearnaud/laravel-pushbullet/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/lahaxearnaud/laravel-pushbullet">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="laravel-pushbullet" class="anchor" href="#laravel-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Laravel-PushBullet</h1>
 
-<p>This package is an integration of <code>joetannenbaum/phpushbullet</code> library in laravel 4.</p>
+<p>This package is an integration of <code>joetannenbaum/phpushbullet</code> library in Laravel 5.</p>
+
+<h2>
+<a id="looking-for-a-laravel-4-version" class="anchor" href="#looking-for-a-laravel-4-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Looking for a Laravel 4 version?</h2>
+
+<p>Use the <a href="https://github.com/lahaxearnaud/laravel-pushbullet/tree/v0.2">0.2 branch</a> for Laravel 4 compatability.</p>
 
 <h2>
 <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
@@ -66,15 +62,9 @@
 
 <pre><code>{
     "require": {
-        "lahaxearnaud/laravel-pushbullet": "~0.2"
+        "lahaxearnaud/laravel-pushbullet": "~1.0"
     }
 }
-</code></pre>
-
-<p>Publish configurations</p>
-
-<pre><code>php artisan config:publish lahaxearnaud/laravel-pushbullet
-
 </code></pre>
 
 <p>Add provider in your <code>app.php</code></p>
@@ -95,9 +85,11 @@
 
 </code></pre>
 
-<p>Set the api key in <code>config/packages/lahaxearnaud/laravel-pushbullet/config.php</code></p>
+<p>Set the api key in <code>config/services.php</code></p>
 
-<pre><code>  'apiKey' =&gt; 'MY-APPI-KEY'
+<pre><code>  'pushbullet' =&gt; [
+      'apiKey' =&gt; 'MY-APPI-KEY',
+  ],
 </code></pre>
 
 <p>If you do not wish to put your access token in your code (understandable), simply set it to the environment variable named <code>pushbullet.access_token</code> and set:</p>
@@ -110,7 +102,7 @@
 
 <p>To list the available devices on your account:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>devices();</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>devices();</span></pre></div>
 
 <p>This will return an array of objects with all of the device information.</p>
 
@@ -124,17 +116,17 @@
 
 <p>To push to a single device:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>To push to multiple devices:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2"><span class="pl-c">// or</span></span>
-<span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>device(<span class="pl-s"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c">// or</span></span>
+<span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Galaxy S4<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>If you want to push to all devices</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>all()<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>all()<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h3>
 <a id="to-type" class="anchor" href="#to-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Type</h3>
@@ -155,13 +147,13 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 
 <p>To push to a single user:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s1"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>To push to multiple users:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s1"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>user(<span class="pl-s1"><span class="pl-pds">'</span>anne@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2"><span class="pl-c">// or</span></span>
-<span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s1"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>anne@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>user(<span class="pl-s"><span class="pl-pds">'</span>anne@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c">// or</span></span>
+<span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>user(<span class="pl-s"><span class="pl-pds">'</span>joe@example.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>anne@example.com<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Remember<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Buy some eggs.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h2>
 <a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
@@ -176,7 +168,7 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 <li>Body</li>
 </ul>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s1"><span class="pl-pds">'</span>Musings<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Why are fudgy brownies better than cakey brownies?<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>note(<span class="pl-s"><span class="pl-pds">'</span>Musings<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Why are fudgy brownies better than cakey brownies?<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h3>
 <a id="links" class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h3>
@@ -189,7 +181,7 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 <li>Body (optional)</li>
 </ul>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>link(<span class="pl-s1"><span class="pl-pds">'</span>Look It Up<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>http://google.com<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>I hear this is a good site for finding things.<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>link(<span class="pl-s"><span class="pl-pds">'</span>Look It Up<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>http://google.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>I hear this is a good site for finding things.<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h3>
 <a id="addresses" class="anchor" href="#addresses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Addresses</h3>
@@ -201,18 +193,18 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 <li>Address</li>
 </ul>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>address(<span class="pl-s1"><span class="pl-pds">'</span>The Hollywood Sign<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>4059 Mt Lee Drive Hollywood, CA 90068<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>address(<span class="pl-s"><span class="pl-pds">'</span>The Hollywood Sign<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>4059 Mt Lee Drive Hollywood, CA 90068<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>Alternatively, you can pass in an associative array:</p>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$address</span> <span class="pl-k">=</span> [</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>4059 Mt Lee Drive<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>city<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>Hollywood<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>state<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>CA<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>zip<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>90068<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">];</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>address(<span class="pl-s1"><span class="pl-pds">'</span>The Hollywood Sign<span class="pl-pds">'</span></span>, <span class="pl-vo">$address</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$address</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>4059 Mt Lee Drive<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>city<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Hollywood<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>state<span class="pl-pds">'</span></span>   <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>CA<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>zip<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>90068<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">];</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>address(<span class="pl-s"><span class="pl-pds">'</span>The Hollywood Sign<span class="pl-pds">'</span></span>, <span class="pl-smi">$address</span>);</span></pre></div>
 
 <h3>
 <a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
@@ -224,14 +216,14 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 <li>Items (array)</li>
 </ul>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$items</span> <span class="pl-k">=</span> [</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>Socks<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>Pants<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>Keys<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">  <span class="pl-s1"><span class="pl-pds">'</span>Wallet<span class="pl-pds">'</span></span>,</span>
-<span class="pl-s2">];</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>list(<span class="pl-s1"><span class="pl-pds">'</span>Do Not Forget<span class="pl-pds">'</span></span>, <span class="pl-vo">$items</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$items</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>Socks<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>Pants<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>Keys<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>Wallet<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">];</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>list(<span class="pl-s"><span class="pl-pds">'</span>Do Not Forget<span class="pl-pds">'</span></span>, <span class="pl-smi">$items</span>);</span></pre></div>
 
 <h3>
 <a id="files" class="anchor" href="#files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files</h3>
@@ -244,14 +236,16 @@ PushBullet::type('android', 'chrome')-&gt;note('Remember', 'Buy some eggs.');
 <li>Body (optional)</li>
 </ul>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-s3">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s1"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>file(<span class="pl-s1"><span class="pl-pds">'</span>The Big Presentation<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>http://example.com/do-not-lose-this.pptx<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>Final version of slides.<span class="pl-pds">'</span></span>);</span></pre></div>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/lahaxearnaud">lahaxearnaud</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">PushBullet</span><span class="pl-k">::</span>device(<span class="pl-s"><span class="pl-pds">'</span>Chrome<span class="pl-pds">'</span></span>)<span class="pl-k">-&gt;</span>file(<span class="pl-s"><span class="pl-pds">'</span>The Big Presentation<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>http://example.com/do-not-lose-this.pptx<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Final version of slides.<span class="pl-pds">'</span></span>);</span></pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lahaxearnaud/laravel-pushbullet">Laravel-pushbullet</a> is maintained by <a href="https://github.com/lahaxearnaud">lahaxearnaud</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
