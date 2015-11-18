@@ -32,13 +32,6 @@ Use the [0.2 branch](https://github.com/lahaxearnaud/laravel-pushbullet/tree/v0.
 }
 ```
 
-Publish configurations
-
-```
-php artisan vendor:publish
-
-```
-
 Add provider in your `app.php`
 
 
@@ -61,10 +54,12 @@ Add facade in your `app.php`
 
 ```
 
-Set the api key in `config/pushbullet.php`
+Set the api key in `config/services.php`
 
 ```
-  'apiKey' => 'MY-APPI-KEY'
+  'pushbullet' => [
+      'apiKey' => 'MY-APPI-KEY',
+  ],
 ```
 
 If you do not wish to put your access token in your code (understandable), simply set it to the environment variable named `pushbullet.access_token` and set:

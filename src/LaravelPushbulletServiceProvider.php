@@ -20,9 +20,6 @@ class LaravelPushbulletServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/config.php' => config_path('pushbullet.php'),
-        ]);
     }
 
     /**
@@ -33,7 +30,11 @@ class LaravelPushbulletServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('pushbullet', function () {
-            $apiKey = $this->app['config']->get('pushbullet.apiKey', null);
+            $apiKey = $this->app['config']->get('services.pushbullet.apiKey', null);
+
+            if (!$apiKey) {
+                $apiKey = $this->app['config']->get('pushbullet.apiKey', null);
+            }
 
             return new LaravelPushbullet($apiKey);
         });
