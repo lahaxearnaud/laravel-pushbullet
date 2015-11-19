@@ -1,6 +1,6 @@
 <?php namespace Lahaxearnaud\LaravelPushbullet;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use PHPushbullet\PHPushbullet;
 
 class LaravelPushbullet extends PHPushbullet {
