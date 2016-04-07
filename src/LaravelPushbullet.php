@@ -7,9 +7,7 @@ class LaravelPushbullet extends PHPushbullet {
 
     public function __construct($access_token = null)
     {
-        parent::__construct($access_token);
-
-        $this->api->setDefaultOption('verify', false);
+        parent::__construct($access_token, null, ['verify' => false]);
     }
 
 
