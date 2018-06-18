@@ -1,7 +1,6 @@
 {
     "name": "lahaxearnaud/laravel-pushbullet",
     "description": "Laravel integration of joetannenbaum/phpushbullet",
-    "description": "PushBullet library for Laravel.",
     "keywords": ["pushbullet", "laravel", "notification"],
     "license": "MIT",
     "authors": [
@@ -18,6 +17,13 @@
     "autoload": {
         "psr-4": {
             "Lahaxearnaud\\LaravelPushbullet\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lahaxearnaud\\LaravelPushbullet\\LaravelPushbulletServiceProvider"
+            ]
         }
     },
     "minimum-stability": "stable"
