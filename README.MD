@@ -32,7 +32,7 @@ Use the [0.2 branch](https://github.com/lahaxearnaud/laravel-pushbullet/tree/v0.
 }
 ```
 
-Add provider in your `app.php`
+Add provider in your `app.php` **(only needed if Laravel 5.4 or minor)**
 
 
 ```
@@ -43,7 +43,7 @@ Add provider in your `app.php`
 
 ```
 
-Add facade in your `app.php`
+Add facade in your `app.php` **(only needed if Laravel 5.4 or minor)**
 
 
 ```
@@ -58,15 +58,11 @@ Set the api key in `config/services.php`
 
 ```
   'pushbullet' => [
-      'apiKey' => 'MY-APPI-KEY',
+      'apiKey' => env('PB_ACCESS_TOKEN', 'default token here'),
   ],
 ```
 
-If you do not wish to put your access token in your code (understandable), simply set it to the environment variable named `pushbullet.access_token` and set:
-
-```
-  'apiKey' => $_ENV['pushbullet.access_token']
-```
+If you do not wish to put your access token in your code (understandable), simply set it to the environment variable (.env file in root laravel folder) named `PB_ACCESS_TOKEN`.
 
 
 ## Listing Devices
@@ -222,4 +218,3 @@ Arguments:
 ```php
 PushBullet::device('Chrome')->file('The Big Presentation', 'http://example.com/do-not-lose-this.pptx', 'Final version of slides.');
 ```
-
