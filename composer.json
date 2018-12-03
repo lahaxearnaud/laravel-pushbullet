@@ -23,7 +23,10 @@
         "laravel": {
             "providers": [
                 "Lahaxearnaud\\LaravelPushbullet\\LaravelPushbulletServiceProvider"
-            ]
+            ],
+	    "aliases": {
+		"PushBullet": "Lahaxearnaud\\LaravelPushbullet\\LaravelPushbulletFacade"
+	    }
         }
     },
     "minimum-stability": "stable"
