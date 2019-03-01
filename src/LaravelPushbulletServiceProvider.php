@@ -1,8 +1,15 @@
-<?php namespace Lahaxearnaud\LaravelPushbullet;
+<?php
+
+namespace Lahaxearnaud\LaravelPushbullet;
 
 use Illuminate\Support\ServiceProvider;
 use \Config as Config;
+use Lahaxearnaud\LaravelPushbullet\Services\LaravelPushbullet;
 
+/**
+ * Class LaravelPushbulletServiceProvider
+ * @package Lahaxearnaud\LaravelPushbullet
+ */
 class LaravelPushbulletServiceProvider extends ServiceProvider
 {
 

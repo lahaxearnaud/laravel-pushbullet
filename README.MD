@@ -2,10 +2,6 @@
 
 This package is an integration of `joetannenbaum/phpushbullet` library in Laravel 5.
 
-## Looking for a Laravel 4 version?
-
-Use the [0.2 branch](https://github.com/lahaxearnaud/laravel-pushbullet/tree/v0.2) for Laravel 4 compatability.
-
 ## Table of Contents
 
 + [Installation](#installation)
@@ -25,45 +21,16 @@ Use the [0.2 branch](https://github.com/lahaxearnaud/laravel-pushbullet/tree/v0.
 
 
 ```
-{
-    "require": {
-        "lahaxearnaud/laravel-pushbullet": "~1.0"
-    }
-}
+$ composer require lahaxearnaud/laravel-pushbullet
 ```
 
-Add provider in your `app.php` **(only needed if Laravel 5.4 or minor)**
+That's all !
 
-
-```
-'providers' => array(
-    //...
-    'Lahaxearnaud\LaravelPushbullet\LaravelPushbulletServiceProvider',
-),
+Just don't forget to use the face before using it:
 
 ```
-
-Add facade in your `app.php` **(only needed if Laravel 5.4 or minor)**
-
-
+use use Lahaxearnaud\LaravelPushbullet\Pushbullet;
 ```
-'aliases' => array(
-    //...
-    'PushBullet'        => 'Lahaxearnaud\LaravelPushbullet\LaravelPushbulletFacade',
-),
-
-```
-
-Set the api key in `config/services.php`
-
-```
-  'pushbullet' => [
-      'apiKey' => env('PB_ACCESS_TOKEN', 'default token here'),
-  ],
-```
-
-If you do not wish to put your access token in your code (understandable), simply set it to the environment variable (.env file in root laravel folder) named `PB_ACCESS_TOKEN`.
-
 
 ## Listing Devices
 
