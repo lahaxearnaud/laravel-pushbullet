@@ -29,7 +29,7 @@ That's all !
 Just don't forget to use the face before using it:
 
 ```
-use use Lahaxearnaud\LaravelPushbullet\Pushbullet;
+use Lahaxearnaud\LaravelPushbullet\Pushbullet;
 ```
 
 ## Listing Devices
