@@ -11,7 +11,7 @@
     ],
     "require": {
         "joetannenbaum/phpushbullet": "~1.2",
-        "laravel/framework": "^5.8"
+        "laravel/framework": "^6"
     },
     "autoload": {
         "psr-4": {
