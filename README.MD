@@ -1,6 +1,6 @@
 # Laravel-PushBullet
 
-This package is an integration of `joetannenbaum/phpushbullet` library in Laravel 5.
+This package is an integration of `joetannenbaum/phpushbullet` library in Laravel.
 
 ## Table of Contents
 
